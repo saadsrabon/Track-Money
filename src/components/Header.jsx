@@ -8,7 +8,7 @@ export default function Header() {
       >
         {/* <!-- Logo --> */}
         <div>
-          <img src="https://img.icons8.com/color/48/tax.png" alt="tax" className="h-12" />
+        <a className='text-2xl font-semibold' href="#">Expense Wise</a>
         </div>
 
         {/* <!-- Menu --> */}

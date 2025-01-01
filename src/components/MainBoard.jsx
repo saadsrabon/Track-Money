@@ -20,7 +20,7 @@ export default function MainBoard() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* <!-- Submission Form --> */}
 
-        <InputOutput />
+        <InputOutput setTrackData={setTrackData} />
         {/* <!-- Right Columndd --> */}
         <RightPart data={trackData} setTrackData={setTrackData}  />
       </section>

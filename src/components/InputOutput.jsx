@@ -2,13 +2,25 @@ import { useState } from "react";
 import ExpenseIncomeBtn from "./Buttons/ExpenseIncomeBtn";
 
 
-export default function InputOutput() {
+export default function InputOutput({setTrackData}) {
     const [isActive ,setIsActive]= useState({id:"1"})
+    const category = [ 'Education', 'Food', 'Health', 'Bill', 'Insurance', 'Tax', 'Transport', 'Telephone'];
+
+    const handleTrackData = (e) => {
+        e.preventDefault();
+      const payload={
+        category: e.target.category.value,
+        ammount: e.target.ammount.value,
+        date: e.target.date.value,
+        type: isActive.id === "1" ? "income" : "expense"
+      }
+      setTrackData((prevData) => [...prevData, payload]);
+    }
   return (
     <div className="p-6 py-8 bg-[#F9FAFB] border rounded-md">
     <h2 className="text-3xl font-semibold leading-7 text-gray-800 text-center">Expense Tracker</h2>
 
-    <form>
+    <form onSubmit={handleTrackData} className="mt-6">
       <div
         className="flex divide-x divide-slate-400/20 overflow-hidden rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 shadow-sm ring-1 ring-slate-700/10 mt-6"
       >
@@ -28,25 +40,22 @@ export default function InputOutput() {
             autoComplete="category-name"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
           >
-            <option>Education</option>
-            <option>Food</option>
-            <option>Health</option>
-            <option>Bill</option>
-            <option>Insurance</option>
-            <option>Tax</option>
-            <option>Transport</option>
-            <option>Telephone</option>
+            {category.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
           </select>
         </div>
       </div>
 
       <div className="mt-3">
-        <label htmlFor="amount" className="block text-sm font-medium leading-6 text-gray-900">Amount</label>
+        <label htmlFor="ammount" className="block text-sm font-medium leading-6 text-gray-900">ammount</label>
         <div className="mt-2">
           <input
             type="number"
-            name="amount"
-            id="amount"
+            name="ammount"
+            id="ammount"
             autoComplete="off"
             placeholder="12931"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"

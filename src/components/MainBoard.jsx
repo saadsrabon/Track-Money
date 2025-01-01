@@ -22,7 +22,7 @@ export default function MainBoard() {
 
         <InputOutput />
         {/* <!-- Right Columndd --> */}
-        <RightPart data={trackData}  />
+        <RightPart data={trackData} setTrackData={setTrackData}  />
       </section>
     </main>
   );

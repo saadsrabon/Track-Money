@@ -32,7 +32,7 @@ export default function RightPart({ data }) {
       <TotalBoard balance={balance} income={income} expense={expense} />
 
       {/* <!-- List Down --> */}
-      <Dashboard />
+      <Dashboard data={data}/>
     </div>
   );
 }

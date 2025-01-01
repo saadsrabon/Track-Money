@@ -8,7 +8,7 @@ export default function MainBoard() {
         {/* <!-- Submission Form --> */}
 
         <InputOutput />
-        {/* <!-- Right Column --> */}
+        {/* <!-- Right Columndd --> */}
         <RightPart />
       </section>
     </main>
